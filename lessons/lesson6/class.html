@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function Car(_brand, _model) {
+            this.brand = _brand;
+            this.model = _model;
+
+            const wheel = 4;
+
+            this.countWheel = function () {
+                console.log(`count: ${wheel}`)
+            }
+        }
+
+        const bmw = new Car('BMW', 3);
+        const audi = new Car('Audi', 100);
+
+
+        class Car1 {
+            constructor(_brand, _model) {
+                this.brand = _brand;
+                this.model = _model;
+            }
+
+            wheel = 4;
+
+            countWheel() {
+                console.log(`count: ${this.wheel}`);
+            }
+        }
+
+        const mers = new Car1('mers', 'e');
+
+        class Rectangle {
+            #height = 0;
+            #width;
+            constructor(height, width) {
+                this.#height = height;
+                this.#width = width;
+            }
+        }
+
+        const a = new Rectangle(100, 200);
+
+    </script>
+
+</body>
+
+</html>
