@@ -13,7 +13,6 @@ function XO(str) {
   return xo.x == xo.o;
 }
 
-console.log(XO('xoxo'));
 console.log(XO('xoxox'));
 console.log(XO('ytyt'));
 console.log(XO(''));
