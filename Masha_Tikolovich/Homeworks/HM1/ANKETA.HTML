@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        let surname = prompt('Ваша фамилия');
+        let name = prompt ('Ваше имя');
+        let dadname = prompt('Ваше отчество');
+        let age = prompt('Ваш возраст в годах');
+        let yearsage = parseInt(age);
+        let age365 = age*365;
+        let age5 = (yearsage+5);
+        let gender;
+        let sex = confirm ('Ваш пол мужской?');
+            if (sex)
+                gender = ('Мужской');
+            else 
+                gender = ('Женский');
+
+        let retired;
+            if (gender ==='Мужской' && age<63)
+            retired = "нет";
+            else
+            retired = "да";
+            if (gender ==='Женский' && age<58)
+            retired = "нет";
+            else
+            retired = 'да';
+
+        alert('Ваше ФИО: ' + surname + ' ' + name + ' ' + dadname +'\n' + 
+        'Ваш возраст в годах: ' + age + '\n' +
+        'Ваш возраст в днях:' + age365 + '\n' + 
+        'Через 5 лет Вам будет:' + age5 + '\n' + 
+        'Ваш пол мужской?' + gender + '\n' + 
+        'Вы на пенсии?' + retired);
+    </script>
+</body>
+</html>
