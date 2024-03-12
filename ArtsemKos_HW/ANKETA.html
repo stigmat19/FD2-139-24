@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        let pens;
+        const name = prompt('Ваше имя:');
+        const lastname = prompt('Ваша фамилия:');
+        const surename = prompt('Ваше отчество:');
+        const age = parseInt( uage = prompt('Ваш возраст в годах:'));
+        const sex = (usex = confirm('Ваш пол мужской?') == true) ? 'Мужской' : 'Женский';
+        if (sex == 'Мужской'){
+            if (age > 62){
+                pens = 'Да'
+        
+            }
+            else{
+                pens = 'Нет'
+            }
+        }
+        else{
+            if(age > 57){
+                pens = 'Да'
+            }
+            else{
+                pens = 'Нет'
+            }
+        }
+        alert (`Ваше ФИО: ${name} ${lastname} ${surename}
+Ваш возраст в годах: ${age}
+ваш возраст в днях: ${age*365}
+через 5 лет вам будет: ${age+5}
+ваш пол: ${sex}
+вы на пенсии: ${pens}`);
+
+    </script>
+</body>
+</html>
