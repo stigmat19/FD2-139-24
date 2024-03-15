@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function Auth(name) {
+            this.name = name;
+
+            this.run = function () {
+                console.log(this.name + ' is run');
+            }
+        }
+
+        Auth.prototype.auth = function () {
+            console.log('-------auth');
+        }
+
+        const Ivan = new Auth("Ivan");
+        const Petr = new Auth("Petr");
+
+        String.prototype.sayHello = function () {
+            console.log('Hello ', this.slice(0));
+        }
+
+        Array.prototype.map = function () {
+            console.log('Hello')
+        }
+
+        const humanProto = { /* прототип человека */
+            eyes: 2, /* обычно у человека 2 глаза */
+            showEyes: function () { console.log(this.eyes); }
+        };
+
+        function Man() {
+
+        }
+
+        Man.prototype=humanProto;
+
+        class Car {
+            constructor(brand){
+                this.brand = brand 
+            }
+
+            #test = 'Mers';
+
+            static run(){
+                console.log(this.test + ' is run')
+            }
+        }
+
+        
+
+        const bmw = new Car('BMW')
+
+    </script>
+
+</body>
+
+</html>

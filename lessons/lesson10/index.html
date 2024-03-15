@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        'use strict';
+
+        function Car(brand){
+            this.brand = brand;
+
+            const wheels = 4;
+
+            this.getWheelsCount = function(){
+                console.log('wheels', wheels);
+            }
+        }
+
+        class Moto {
+            constructor(brand){
+                this.brand = brand
+            }
+            
+            #wheels = 4;
+
+            getWheelsCount = function(){
+                console.log('wheels', this.wheels);
+            }
+
+            run(){
+                console.log(`${this} is run`)
+            }
+        }
+
+        const honda = new Moto('Honda');
+        console.log('------2', honda.wheels)
+
+        const bmw = new Car("BMW");
+
+        function getUser(){
+            console.log("------",this);
+        }
+        getUser();
+
+        var a = 5;
+
+        const func = bmw.run;
+        const test = prompt;
+    </script>
+    
+</body>
+</html>
