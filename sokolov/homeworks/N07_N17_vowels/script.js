@@ -1,3 +1,4 @@
+//N.07
 function vowels(str) {
     const arr = ['ё', 'у', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю'];
     let count = 0;
@@ -8,6 +9,7 @@ function vowels(str) {
     return count;
 }
 
+//N.17 Засчитаете?
 function vowelsForEach(str) {
     const arr = ['ё', 'у', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю'];
     let count = 0;
