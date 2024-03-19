@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function isPolindrom(vsd) {
+          let str = vsd.toLowerCase().split(' ').join('').replace(/[\s.,,,ъ,ь,!]/g, '');
+           let str2 = str.split('').reverse().join('');
+            let result = true;
+            if (str !== str2) {
+                result = false
+            }
+            console.log(`Is Polindrom? :${result}`)
+        }
+        isPolindrom(prompt('Введите фразу'));
+    </script>
+</body>
+
+</html>
