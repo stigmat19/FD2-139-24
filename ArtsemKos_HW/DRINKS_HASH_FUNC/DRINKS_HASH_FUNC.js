@@ -25,15 +25,33 @@ function DrinksHashFunc() {
     }
     this.getKeys = function () {
 
-        return Object.keys(listDrinks)
+      let arrlist =   Object.keys(listDrinks);
+      let res = arrlist.join();
+      return res
+        
     }
 
 }
 const drinkStorage = new DrinksHashFunc;
-drinkStorage.addValue('akak','bgbfb');
-drinkStorage.addValue('adcs','bvfvf');
-console.log(drinkStorage.getValue('akak'))
-console.log(drinkStorage.getKeys())
-console.log(drinkStorage.deleteValue('adcs'))
-console.log(drinkStorage.getKeys())
+
+function add () {
+    const name = prompt('Введите название напитка');
+    const recipe  = prompt('опишите рецепт');
+    drinkStorage.addValue(name,recipe)
+    alert(`Напиток ${name} добавлен`)
+}
+
+function get(){
+    const name2 = prompt('Введите название напитка');
+  alert( drinkStorage.getValue(name2));
+}
+
+function del(){
+    const name3 = prompt('Введите название напитка');
+    alert(drinkStorage.deleteValue(name3))
+}
+
+function alll(){
+   alert(drinkStorage.getKeys())
+}
 
