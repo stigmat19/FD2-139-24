@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        li:first-child{
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <form action="" name="form2">
+        <input type="text" name="inp2"> <br>
+        <select name="select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <input type="button" value="create" onclick="createEl()">
+
+        <input type="button" value="get" onclick="getValue()">
+        <input type="button" value="set" onclick="setValue('Hello')">
+    </form>
+
+    <ul id="ul"><li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </ul>
+
+    <div id="text"></div>
+
+    <div id="aaa"></div>
+    
+    <script>
+        const inp2 = document.forms.form2.elements.inp2;
+        const select = document.forms.form2.elements.select;
+        const ul = document.querySelector('ul');
+        const div = document.getElementById('text');
+
+        const getValue = () => {
+            aaa.innerHTML = 'Hello'
+            console.log(inp2.value);
+        }
+
+        const setValue = (val) => {
+            inp2.value = val
+        }
+        
+        const createEl = () => {
+            const a = document.createElement('a');
+            const text = document.createTextNode('Hello');
+            a.appendChild(text);
+            div.appendChild(a);
+        }
+
+    </script>
+</body>
+</html>
