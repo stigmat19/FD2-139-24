@@ -10,7 +10,7 @@ function buildWrapper(teg) {
       .replaceAll("&", "$amp;");
     let objstr = "";
     for (let key in obj) {
-      objstr += ` ${key} = '${obj[key]
+      objstr += ` ${key} : '${obj[key]
         .replaceAll("<", "$lt;")
         .replaceAll(">", "$gt;")
         .replaceAll("'", "$apos;")
