@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .two{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .two::selection{
+            background-color: black;
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    
+   <ul>
+        <li data-id="1" data-href="https://www.onliner.by/" >1</li>
+        <li data-id="2" data-href="https://www.kufar.by/l/r~minsk">2</li>
+        <li data-id="3" data-href="test">3</li>
+   </ul>
+
+   <div class="one" draggable="true">
+       
+   </div>
+
+   <div class="two">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci delectus quisquam accusamus illum blanditiis quos? Laudantium dolores minima quas asperiores quia dolorem! Aperiam tenetur obcaecati quae laudantium ducimus pariatur inventore.
+   </div>
+   <input type="text">
+    <script>
+        const ul = document.querySelector('ul');
+        const inp = document.querySelector('[type="text"]')
+
+        // ul.addEventListener('click', (event) => {
+        //     event.preventDefault();
+        //     console.log('event target', event.target);
+        //     console.log('event current', event.currentTarget);
+        //     console.log('event dataset', event.target.dataset);
+            
+
+        //     window.location.href = event.target.dataset.href;
+           
+        // })
+        ul.addEventListener('mousedown', () => console.log('mousedown'))
+        ul.addEventListener('click', () => console.log('click'))
+        ul.addEventListener('mouseup', () => console.log('mouseup'))
+        ul.addEventListener('contextmenu', () => console.log('contextmenu'))
+
+
+         const one = document.querySelector('.one');
+         const two = document.querySelector('.two');
+         one.addEventListener('dragstart', (e) => console.log('dragstart'))
+         one.addEventListener('drag', (e) => console.log('drag'))
+         one.addEventListener('dragend', (e) => console.log('dragend'))
+         two.addEventListener('dragenter', (e) => console.error('dragenter'))
+         two.addEventListener('dragover', (e) => console.log('dragover'))
+         inp.addEventListener('input', (e) => console.log('change'))
+         two.addEventListener('drop', (e) => {
+            e.target.innerHTML = "<h1>Add item</h1>"
+         })
+
+
+        //  window.addEventListener('keydown', (e) => {
+        //     console.log('code: ', e.keyCode)
+        //  })
+    </script>
+
+</body>
+</html>
