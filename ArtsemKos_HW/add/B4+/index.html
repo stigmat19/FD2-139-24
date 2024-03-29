@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="test"></div>
+    <script>
+    // const wrapH1=buildWrapper("H1");
+    // const wrapP=buildWrapper("P");
+    function wrapH1 (str){
+        return (`<h1>${str}</h1>`)
+    }
+    function wrapP (str){
+        return (`<p>${str}</p>`)
+    }
+    console.log(wrapH1('hello'))
+    const el = document.getElementById('test');
+    el.innerHTML=wrapH1('hello');
+
+
+
+    </script>
+</body>
+</html>

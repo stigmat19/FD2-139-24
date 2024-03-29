@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const str = prompt('Введите строку');
+        const arr = str.split('');
+        let result = 0;
+        function vowels(i) {
+            const vowel = ['а', 'у', 'о', 'и', 'э', 'ы', 'я', 'ю', 'е', 'ё'];
+            if (vowel.includes(i)) {
+                result += 1
+            }
+        }
+        arr.forEach(vowels);
+        console.log(`Метод forEach, результат: ${result}`)
+        // // ------------------------------------------------------------------------------------
+
+        function vowels2(i) {
+            const vowel = ['а', 'у', 'о', 'и', 'э', 'ы', 'я', 'ю', 'е', 'ё'];
+            return vowel.includes(i)
+        }
+        const a = arr.filter(vowels2);
+        const result2 = a.length;
+
+        console.log(`Метод filter, результат: ${result2}`);
+        //    ------------------------------------------------------------------------------------------------,
+        function vowels3 (result3,i){
+            const vowel = ['а', 'у', 'о', 'и', 'э', 'ы', 'я', 'ю', 'е', 'ё'];
+            if(vowel.includes(i)){
+                return result3+1
+            }
+            else{
+                return result3+0
+            }
+        }
+        console.log(`Метод reduce, результат: ${arr.reduce(vowels3,0)}`)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

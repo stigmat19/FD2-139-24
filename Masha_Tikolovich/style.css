@@ -1,0 +1,8 @@
+h1{
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 6vmax;
+    background-color: #27cfca;
+    background-image: linear-gradient(90deg, #de2d39, #37c5c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
