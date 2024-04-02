@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowels</title>
+</head>
+
+<body>
+    <script>
+        const quantity = (str) => {
+            let vowels = ['а', 'А', 'о', 'О', 'у', 'У', 'и', 'И', 'е', 'Е', 'я', 'Я', 'ю', 'Ю', 'э', 'Э', 'ы', 'Ы'];
+            let newStr = '';
+
+            for (let i = 0; i < str.length; i++) {
+                if (vowels.includes(str[i])) {
+                    newStr += str[i]
+                }
+            }
+            return newStr.length;
+        }
+
+        let str = prompt('Введите текст', '');
+        alert(quantity(str));
+        
+    </script>
+</body>
+
+</html>
