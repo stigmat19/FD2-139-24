@@ -17,7 +17,7 @@
 <body>
 
     
-    <input type="text" id="brand" maxlength="0"> <br>
+    <input type="text" id="brand"> <br>
     <input type="text" id="model"> <br>
     <input type="text" id="imgUrl"> <br>
     <textarea id="descr"></textarea>
@@ -32,7 +32,7 @@
         crossorigin="anonymous"></script>
     <script>
         const el = document.getElementById('app');
-        const cars = [];
+        let cars = [];
 
         function getData(){
             const brand = document.getElementById('brand');
@@ -41,6 +41,7 @@
             const descr = document.getElementById('descr');
 
             const item = {
+                'id': (Math.random()).toString().split('.')[1], 
                 'brand': brand.value,
                 'model': model.value,
                 'imgUrl': imgUrl.value,
@@ -58,15 +59,30 @@
             } 
 
             for(let i=0; i<cars.length; i++){
-                    createCard(cars[i].imgUrl, cars[i].brand, cars[i].model, cars[i].descr);
+                    createCard(
+                        cars[i].imgUrl, 
+                        cars[i].brand, 
+                        cars[i].model, 
+                        cars[i].descr,
+                        cars[i].id
+                    );
             }
         }
 
+        const deleteCard = (e) => {
+            const { id } = e.currentTarget.dataset;
+            const filteredCard = cars.filter(car => car.id !== id);
+            cars = [...filteredCard];
+            view();
+        }
+
         const createCard = (...data) => {
-            const [ imgUrl, brand, model, descr ] = data;
+            const [ imgUrl, brand, model, descr, id ] = data;
 
             const divCard = document.createElement('div');
             divCard.setAttribute('class', 'card');
+            divCard.setAttribute('data-id', id);
+            divCard.addEventListener('click', deleteCard)
 
             const img = document.createElement('img');
             img.setAttribute('src', imgUrl);
@@ -86,7 +102,7 @@
             p.appendChild(pText);
 
             const a = document.createElement('a');
-            const aText = document.createTextNode('Go somewhere');
+            const aText = document.createTextNode('Delete');
             a.setAttribute('class', 'btn btn-primary');
             a.appendChild(aText);
 
