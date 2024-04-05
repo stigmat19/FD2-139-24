@@ -39,7 +39,7 @@ const formDef2 = [
   { caption: "Зарегистрироваться", kind: "submit" },
 ];
 function getForm(form, arr) {
-  arr.forEach((key) => {
+  for(let key of arr) {
     const label = document.createElement("label");
     label.className = "lab";
     const input = document.createElement("input");
@@ -121,8 +121,7 @@ function getForm(form, arr) {
         break;
       }
     }
-  });
-}
+  };
 
 getForm(form_1, formDef1);
 getForm(form_2, formDef2);
