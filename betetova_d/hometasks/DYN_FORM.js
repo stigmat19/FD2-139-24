@@ -121,7 +121,7 @@ function getForm(form, arr) {
         break;
       }
     }
-  };
-
+  }
+}
 getForm(form_1, formDef1);
 getForm(form_2, formDef2);
