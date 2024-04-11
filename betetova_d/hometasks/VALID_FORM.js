@@ -228,6 +228,11 @@ function radioReset() {
 
 const checkError = document.getElementById("check_error");
 const check = form.elements.check;
+check.onchange = function checkReset() {
+  if (check) {
+    checkError.innerHTML = "";
+  }
+};
 function checkValidation() {
   const check = form.elements.check.checked;
   if (!check) {
