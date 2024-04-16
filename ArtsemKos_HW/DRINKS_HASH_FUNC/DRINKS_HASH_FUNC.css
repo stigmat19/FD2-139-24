@@ -1,0 +1,26 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin: 50px auto; }
+
+.button {
+  width: 300px;
+  height: 50px;
+  border: solid 3px #250950;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  cursor: pointer;
+  transition: 0.5s; }
+
+.button:hover {
+  background-color: #250950;
+  color: white;
+  width: 310px; }
+
+/*# sourceMappingURL=DRINKS_HASH_FUNC.css.map */
