@@ -9,17 +9,27 @@
     <title>Document</title>
 
     <style>
+        #app{
+            display: flex;
+            flex-flow: wrap;
+        }
         .card{
             width: 18rem;
         }
     </style>
 </head>
 <body>
-
-    
+    <button id="up">up</button><br>
+    <button id="down">down</button>
+    <label>
+        filter
+        <input type="text" id="filter">
+    </label>
+    <hr>
     <input type="text" id="brand"> <br>
     <input type="text" id="model"> <br>
     <input type="text" id="imgUrl"> <br>
+    <input type="text" id="price"> <br>
     <textarea id="descr"></textarea>
     <input type="submit" onclick="getData()">
     
@@ -32,12 +42,66 @@
         crossorigin="anonymous"></script>
     <script>
         const el = document.getElementById('app');
-        let cars = [];
+        const up = document.getElementById('up');
+        const down = document.getElementById('down');
+        const filter = document.getElementById('filter');
+
+        let cars = [
+            {
+                id: "07351738510839678",
+                brand: "bmw",
+                model: "3",
+                imgUrl: "bmw.jpg",
+                price: "2000",
+                descr: "sdsds"
+            },
+            {
+                id: "07351738510839679",
+                brand: "mers",
+                model: "3",
+                imgUrl: "bmw.jpg",
+                price: "1000",
+                descr: "sdsds"
+            },
+            {
+                id: "07351738510839676",
+                brand: "audi",
+                model: "3",
+                imgUrl: "bmw.jpg",
+                price: "3000",
+                descr: "sdsds"
+            },
+            {
+                id: "07351738510839678",
+                brand: "bmw",
+                model: "3",
+                imgUrl: "bmw.jpg",
+                price: "2000",
+                descr: "sdsds"
+            },
+            {
+                id: "07351738510839679",
+                brand: "mers",
+                model: "3",
+                imgUrl: "bmw.jpg",
+                price: "1000",
+                descr: "sdsds"
+            },
+            {
+                id: "07351738510839676",
+                brand: "audi",
+                model: "3",
+                imgUrl: "bmw.jpg",
+                price: "3000",
+                descr: "sdsds"
+            }
+        ];
 
         function getData(){
             const brand = document.getElementById('brand');
             const model = document.getElementById('model');
             const imgUrl = document.getElementById('imgUrl');
+            const price = document.getElementById('price');
             const descr = document.getElementById('descr');
 
             const item = {
@@ -45,26 +109,28 @@
                 'brand': brand.value,
                 'model': model.value,
                 'imgUrl': imgUrl.value,
+                'price': price.value,
                 'descr': descr.value,
             }
             cars.push(item);
-            view();
+            view(cars);
         }
 
-        function view() {
+        function view(data) {
             const card = document.querySelectorAll('.card');
             const app = document.querySelector('#app');
             if(card.length > 0){
                 app.innerHTML = '';
             } 
 
-            for(let i=0; i<cars.length; i++){
+            for(let i=0; i<data.length; i++){
                     createCard(
-                        cars[i].imgUrl, 
-                        cars[i].brand, 
-                        cars[i].model, 
-                        cars[i].descr,
-                        cars[i].id
+                        data[i].imgUrl, 
+                        data[i].brand, 
+                        data[i].model, 
+                        data[i].price,
+                        data[i].descr,
+                        data[i].id
                     );
             }
         }
@@ -73,11 +139,11 @@
             const { id } = e.currentTarget.dataset;
             const filteredCard = cars.filter(car => car.id !== id);
             cars = [...filteredCard];
-            view();
+            view(cars);
         }
 
         const createCard = (...data) => {
-            const [ imgUrl, brand, model, descr, id ] = data;
+            const [ imgUrl, brand, model, price, descr, id,  ] = data;
 
             const divCard = document.createElement('div');
             divCard.setAttribute('class', 'card');
@@ -101,6 +167,11 @@
             const pText = document.createTextNode(`${descr}`);
             p.appendChild(pText);
 
+            const priceP = document.createElement("p");
+            priceP.setAttribute('class', 'card-text');
+            const priceText = document.createTextNode(`${price}`);
+            priceP.appendChild(priceText);
+
             const a = document.createElement('a');
             const aText = document.createTextNode('Delete');
             a.setAttribute('class', 'btn btn-primary');
@@ -110,12 +181,34 @@
 
             divBody.appendChild(h5);
             divBody.appendChild(p);
+            divBody.appendChild(priceP);
             divBody.appendChild(a);
 
             divCard.appendChild(divBody);
 
             el.appendChild(divCard);
         }
-    </script>
+        
+        view(cars);
+
+        up.addEventListener('click', () => {
+            cars.sort((a,b) => a.price - b.price)
+
+            view(cars);
+        });
+
+        down.addEventListener('click', () => {
+            cars.sort((a,b) => b.price - a.price)
+
+            view(cars);
+        });
+
+        filter.addEventListener('input', (e) => {
+            const val = e.target.value;
+            
+            const filteredCard = cars.filter(car => car.brand.startsWith(val));
+            view(filteredCard);
+        })
+  </script>
 </body>
 </html>

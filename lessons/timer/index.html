@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        console.log('-----1')
+
+        const test = 5;
+
+        let count = 0;
+
+        // const t1 = setInterval(() => {
+        //     count++;
+        //     console.log('-------2 5000')
+        //     // if(count === 5){
+        //     //     clearInterval(t1)
+        //     // }
+        // }, 16)
+
+        function tick(){
+            console.log('hello');        
+            requestAnimationFrame(tick);
+        }
+
+        function start(){
+            tick()
+        }
+
+        start()
+        // const t2 =setTimeout(() => {
+        //     console.log('-------2 3000')
+        // }, 3000)
+
+        
+        // const t3 =setTimeout(() => {
+        //     console.log('-------2 1000')
+        // }, 1000)
+
+        
+
+        console.log('------3')
+
+
+    </script>
+</body>
+</html>
