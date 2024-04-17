@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: block;
+            float: left;
+            width: 150px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <form name="web" action="https://fe.it-academy.by/TestForm.php">
+        <span>Разработчики:</span> <input name="dev" type="text"> <br>
+        <span>Название сайта:</span> <input name="nameweb" type="text"><br>
+        <span>URL сайта:</span> <input name="url" type="text"><br>
+        <span>Дата запуска сайта:</span> <input name="data" type="date"><br>
+        <span>Посетителей в сутки:</span> <input name="pers" type="number"><br>
+        <span>E-mail для связи:</span> <input name="mail" type="email"><br>
+        <span>Рубрика каталога:</span> <select name="catal">
+            <option value=1>бытовая техника</option>
+            <option value=2>смартфоны</option>
+            <option value=3>бытовая химия</option>
+        </select><br>
+        <span>Размещение:</span> <input id=accom1 type=radio name='accom' value=1>бесплатное
+        <input type=radio name='accom' value=2>платное
+        <input type=radio name='accom' value=3>VIP <br>
+        <span>Разрешить отзывы:</span> <input name="reviews" type="checkbox"><br>
+        <span>Описание сайта:</span> <br>
+        <textarea name="description" cols="40" rows="5"></textarea><br>
+        <input type="submit" value="Опубликовать">
+    </form>
+</body>
+<script>
+    const forma = document.forms.web;
+    forma.addEventListener('submit',validateForm,false);
+
+    function validateForm(eo){
+        eo=eo||window.event;
+        const forma =document.forms.wed;
+
+        const devField = forma.elements.dev;
+        const devValue = devField.value;
+
+        const namewedField = forma.elements.nameweb;
+        const namewabeValue = devField.value;
+    }
+</script>
+
+</html>
