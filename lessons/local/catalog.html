@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>catalog</h1>
+    <ul id="menu"></ul>
+    
+    <script>
+        const menu = document.getElementById('menu');
+        window.addEventListener('storage', (...rest) => {
+            const { newValue } = rest[0];
+            const usersArr = JSON.parse(newValue) || [];
+
+            const str = usersArr.reduce((acc, value) => {
+                return acc+=`
+                    <li><span>${value.name}</span><span>${value.age}</span></li>    
+                `
+            }, '');
+
+            menu.innerHTML = str;
+        })
+    </script>
+
+</body>
+</html>
