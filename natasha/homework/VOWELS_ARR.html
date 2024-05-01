@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = prompt('Введите текст', '');
+        let vowels = ['а', 'А', 'о', 'О', 'у', 'У', 'и', 'И', 'е', 'Е', 'я', 'Я', 'ю', 'Ю', 'э', 'Э', 'ы', 'Ы'];
+        let summ = 0;
+        let sum = 0;
+        let su = 0;
+
+
+        const quantity = (str) => {
+
+            str.split('').forEach(element => {
+                if (vowels.includes(element)) {
+                    summ += 1
+                }
+            });
+
+            return summ;
+        }
+
+        alert(quantity(str));
+
+
+        const amount = (str) => {
+
+            let mass = str.split('');
+
+            let r = mass.reduce((sum, value) => {
+                if (vowels.indexOf(value) !== -1) {
+                    sum++;
+                }
+                return sum;
+            }, 0);
+            return r;
+        }
+        let results = amount(str);
+        alert("Количество гласных: " + results);
+
+        const quantum = (str) => {
+
+            str.split('').filter(element => {
+                if (vowels.includes(element)) {
+                    su += 1
+                }
+            });
+
+            return su;
+        }
+
+        alert(quantum(str));
+
+    </script>
+</body>
+
+</html>
