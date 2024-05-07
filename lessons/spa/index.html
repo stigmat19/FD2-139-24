@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="AboutPage.js"></script>
+    <script src="script.js"></script>
+
+    <h2>ОДНОСТРАНИЧНОЕ ПРИЛОЖЕНИЕ</h2>
+
+    <div id='IPage'>
+    </div>
+
+    <br>
+    <input type=button value='Главная' onclick='switchToMainPage()'>
+    <span id='IPhotosButtons'></span>
+    <script>
+        var photos = {
+            1: { image: "Hilu3.jpg", comment: "собака Шарик" },
+            2: { image: "Retriever3.jpg", comment: "собака Барбос" }
+        };
+        var photosStr = "";
+        for (var photoId in photos) {
+            var photo = photos[photoId];
+            photosStr += '<input type=button value="' + photo.comment + '" onclick="switchToPhotoPage(' + photoId + ')"> ';
+        }
+        document.getElementById('IPhotosButtons').innerHTML = photosStr;
+    </script>
+    <input type=button value='О нас' onclick='switchToAboutPage()'>
+
+    
+    
+
+</body>
+
+</html>

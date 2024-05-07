@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            display: flex;
+            width: 640px;
+            justify-content: space-between;
+            flex-flow: wrap;
+            margin: 0 auto;
+        }
+        li{
+            list-style-type: none;
+            width: 200px;
+            height: 300px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="app"></ul>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        const url = 'https://jsonplaceholder.typicode.com/users';
+        const app = document.getElementById('app');
+
+        const getUsers = function(users) {
+
+            const userHtml = users.reduce((acc, user) => {
+                return acc+= `
+                    <li>
+                        <p>${user.name}</p>
+                        <p>${user.address.street}</p> 
+                        <p>${user.address.geo.lat}</p> 
+                        <p>${user.company.name}</p>
+                    </li>
+                `
+            }, '');
+            app.innerHTML = userHtml;
+        }
+
+        $.ajax(url, {
+            type: 'GET',
+            dataType: 'json',
+            success: getUsers,
+            error: errorHandler
+        });
+
+        function errorHandler(jqXHR, statusStr, errorStr) {
+            alert(statusStr + ' ' + errorStr);
+        }
+    </script>
+</body>
+
+</html>
