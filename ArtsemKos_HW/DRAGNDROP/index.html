@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+    </style>
+</head>
+
+<body>
+
+
+    <img id="img1" src="img/sax.jpg" alt="sax">
+    <img id="img2" src="img/Yin_and_Yang.png" alt="yin">
+    <img id="img3" src="img/Man-and-woman.png" alt="mnw">
+    <img id="img4" src="img/No_smoking.png" alt="smo">
+    <script>
+          
+
+
+        document.addEventListener('mouseover', function (e) {
+            const id = e.target.id;
+            const img = document.getElementById(id);
+
+
+
+
+
+            img.onmousedown = function (e) {
+             
+
+
+                let shiftX = e.pageX - img.getBoundingClientRect().left;
+                let shiftY = e.pageY - img.getBoundingClientRect().top;
+                img.style.position = 'absolute';
+                img.style.zIndex = 1;
+                document.body.append(img);
+
+
+                moveAt(e.pageX, e.pageY);
+
+                // переносит мяч на координаты (pageX, pageY),
+                // дополнительно учитывая изначальный сдвиг относительно указателя мыши
+                function moveAt(pageX, pageY) {
+                    img.style.left = pageX - shiftX + 'px';
+                    img.style.top = pageY - shiftY + 'px';
+                }
+
+                function onMouseMove(e) {
+                    moveAt(e.pageX, e.pageY);
+                }
+
+                // передвигаем мяч при событии mousemove
+                document.addEventListener('mousemove', onMouseMove);
+
+                // отпустить мяч, удалить ненужные обработчики
+                img.onmouseup = function () {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    img.onmouseup = null;
+                };
+
+            };
+
+
+            img.ondragstart = function () {
+                return false;
+            };
+            // function getCoords(elem) {
+            //     let box = elem.getBoundingClientRect();
+            //     return {
+            //         top: box.top + pageYOffset,
+            //         left: box.left + pageXOffset,
+            //     };
+            // }
+
+        });
+
+
+    </script>
+</body>
+
+</html>
