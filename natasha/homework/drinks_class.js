@@ -1,26 +1,27 @@
-function HashStorageFunc() {
-    this.drinks = {};
-    this.addValue = function(key, value) {
-        this.drinks[key] = value;
-    };
-
-    this.getValue = function(key) {
-        return this.drinks[key];
-    };
-    this.deleteValue = function(key) {
-        if (key in this.drinks) {
-            delete this.drinks[key];
+class HashStorageClass {
+    constructor() {
+        this.storage = {};
+    }
+    addValue(key, value) {
+        this.storage[key] = value;
+    }
+    getValue(key) {
+        return this.storage[key];
+    }
+    deleteValue(key) {
+        if (key in this.storage) {
+            delete this.storage[key];
             return true;
         }
         else {
             return false;
         }
-    };
-    this.getKeys = function() {
-        return Object.keys(this.drinks);
+    }
+    getKeys() {
+        return Object.keys(this.storage);
     }
 }
-const drinkStorage = new HashStorageFunc;
+const drinkStorage = new HashStorageClass();
 function addValue() {
     let drinkName = prompt("Введите название напитка", " ");
     let alc = confirm("Напиток алкогольный?");
@@ -28,23 +29,23 @@ function addValue() {
         alc = "Да";
     }
     else {
-        alco = "Нет";
+        alc = "Нет";
     }
     let recipe = prompt("Введите рецепт напитка", " ");
-    drinkStorage.addValue(drinkName, {a:alc, r:recipe});
+    drinkStorage.addValue(drinkName, { a: alc, r: recipe });
 }
-function  getValue() {
+function getValue() {
     let drinkName = prompt("Введите название напитка", " ");
     let info = drinkStorage.getValue(drinkName);
     if (info) {
-        alert("Название напитка: "+ drinkName +"\n\r " + "Алкогольный: " + info.a + '\n\r '
-            + "Рецепт приготовления: " + info.r);
+        alert("Название напитка: " + drinkName + "\n\r " + "Алкогольный: " + info.a + '\n\r ' +
+            "Рецепт приготовления: " + info.r);
     }
     else {
         alert("Напиток отсутствует.");
     }
 }
-function deleteValue(){
+function deleteValue() {
     let drinkName = prompt("Введите название напитка", " ");
     let del = drinkStorage.deleteValue(drinkName);
     if (del) {
@@ -54,10 +55,11 @@ function deleteValue(){
         alert("Напиток " + "'" + drinkName + "'" + " в списке отсутствует.")
     }
 }
-function getKeys(){
+function getKeys() {
     let drinks = drinkStorage.getKeys();
     if (drinks.length > 0) {
-    alert(drinks);}
+        alert(drinks);
+    }
     else {
         alert("Напитки отсутствуют.")
     }
