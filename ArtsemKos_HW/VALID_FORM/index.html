@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .namePole {
+            display: block;
+            float: left;
+            width: 150px;
+
+        }
+
+        form {
+            margin: 25px;
+        }
+
+        h1 {
+            margin: 25px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Для внесения вашего сайта в каталог, заполните форму:</h1>
+    <form name="web" action="https://fe.it-academy.by/TestForm.php" novalidate>
+        <span class="namePole">Разработчики:</span> <input name="dev" type="text"> <br>
+        <span class="namePole">Название сайта:</span> <input name="nameweb" type="text"><br>
+        <span class="namePole">URL сайта:</span> <input name="url" type="text"><br>
+        <span class="namePole">Дата запуска сайта:</span> <input name="data" type="date"><br>
+        <span class="namePole">Посетителей в сутки:</span> <input name="pers" type="number"><br>
+        <span class="namePole">E-mail для связи:</span> <input name="mail" type="email"><br>
+        <span class="namePole">Рубрика каталога:</span> <select name="catal">
+            <option value=1>бытовая техника</option>
+            <option value=2>смартфоны</option>
+            <option value=3>бытовая химия</option>
+        </select><br>
+        <span class="namePole">Размещение:</span> <input type=radio name='accom' value=1>бесплатное
+        <input type=radio name='accom' value=2>платное
+        <input type=radio name='accom' value=3><span id=accom1>VIP</span> <br>
+        <span class="namePole">Разрешить отзывы:</span> <input name="reviews" type="checkbox"><br>
+        <span class="namePole">Описание сайта:</span> <br>
+        <textarea name="description" cols="40" rows="5"></textarea><br>
+        <input type="submit" value="Опубликовать">
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
